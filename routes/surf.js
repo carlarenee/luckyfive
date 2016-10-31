@@ -12,7 +12,6 @@ router.get('/', authenticate, getFavorites, (req, res) => {
     favorites: res.favorites || [],
     //report: res.report.data || []
   });
-  //console.log(res.report.data.request[0].query);
 });
 
 router.post('/search', authenticate, getFavorites, searchReport, (req,res) => {
@@ -22,6 +21,7 @@ router.post('/search', authenticate, getFavorites, searchReport, (req,res) => {
     favorites: res.favorites || [],
     report: res.report.data || []
   });
+  console.log(res.report.data.q);
 });
 
 // router.delete('/favorites/:id', deleteFavorites, (req, res) => {
