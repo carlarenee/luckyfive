@@ -1,11 +1,11 @@
 const router              = require('express').Router();
 const { authenticate }    = require('../lib/auth');
-const { searchReport}     = require('../services/report');
-const { getFavorites,
-        saveFavorite,
-        deleteFavorites } = require('../models/favorites');
+const { searchReport }     = require('../services/report');
+const { getBreak,
+        saveBreak,
+        deleteBreak } = require('../models/favorites');
 
-router.get('/', authenticate, getFavorites, (req, res) => {
+router.get('/', authenticate, getBreak, (req, res) => {
   res.render('surf/index', {
     user: res.user,
     results: res.results || [],
@@ -14,22 +14,22 @@ router.get('/', authenticate, getFavorites, (req, res) => {
   });
 });
 
-router.post('/search', authenticate, getFavorites, searchReport, (req,res) => {
+router.post('/search', authenticate, getBreak, searchReport, (req,res) => {
   res.render('surf/search', {
     user: res.user,
     results: res.results || [],
-    favorites: res.favorites || [],
+    breaks: res.breaks || [],
     report: res.report.data || []
   });
-  console.log(res.report.data.q);
+  //console.log(res.report.data.q);
 });
 
 // router.delete('/favorites/:id', deleteFavorites, (req, res) => {
 //   res.redirect('/surf');
 // });
 
-// router.post('/favorites', saveFavorite, (req, res) => {
-//   res.redirect('/surf');
-// });
+router.post('/breaks', saveBreak, (req, res) => {
+  res.redirect('/surf');
+});
 
 module.exports = router;

@@ -3,14 +3,14 @@ const { getDB }    = require('../lib/dbConnect.js');
 
 // const DB_CONNECTION = 'mongodb://localhost:27017/itunescrud';
 
-function getFavorites(req, res, next) {
+function getBreak(req, res, next) {
   // find all favorites for your userId
   getDB().then((db) => {
-    db.collection('favorites')
+    db.collection('breaks')
       .find({ userId: { $eq: req.session.userId } })
       .toArray((toArrErr, data) => {
         if(toArrErr) return next(toArrErr);
-        res.favorites = data;
+        res.breaks = data;
         db.close();
         next();
       });
@@ -19,7 +19,7 @@ function getFavorites(req, res, next) {
   return false;
 }
 
-function saveFavorite(req, res, next) {
+function saveBreak(req, res, next) {
   // creating an empty object for the insertObj
   const insertObj = {};
   
@@ -29,11 +29,11 @@ function saveFavorite(req, res, next) {
   }
 
   // Adding userId to insertObj
-  insertObj.favorite.userId = req.session.userId;
+  insertObj.userId = req.session.userId;
 
   getDB().then((db) => {
-    db.collection('favorites')
-      .insert(insertObj.favorite, (insertErr, result) => {
+    db.collection('breaks')
+      .insert(insertObj, (insertErr, result) => {
         if (insertErr) return next(insertErr);
         res.saved = result;
         db.close();
@@ -47,18 +47,18 @@ function saveFavorite(req, res, next) {
 // Delete method doesn't change because we are deleting objects from the database
 // based on that object's unique _id - you do not need to specify which user as
 // the _id is sufficient enough
-function deleteFavorites(req, res, next) {
-  getDB().then((db) => {
-    db.collection('favorites')
-      .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, result) => {
-        if (removeErr) return next(removeErr);
-        res.removed = result;
-        db.close();
-        next();
-      });
-      return false;
-  });
-  return false;
-}
+// function deleteBreak(req, res, next) {
+//   getDB().then((db) => {
+//     db.collection('breaks')
+//       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, result) => {
+//         if (removeErr) return next(removeErr);
+//         res.removed = result;
+//         db.close();
+//         next();
+//       });
+//       return false;
+//   });
+//   return false;
+// }
 
-module.exports = { getFavorites, saveFavorite, deleteFavorites };
+module.exports = { getBreak, saveBreak };
