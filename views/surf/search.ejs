@@ -1,0 +1,27 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Surf Buddy</title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <h1>HEYO!</h1>
+    
+    <p>High Temp:<%= report.weather[0].maxtempF %> *F</p>
+    <p>Low Temp:<%= report.weather[0].mintempF %> *F</p>
+    <p>Wave Height:<%= report.weather[0].hourly[0].swellHeight_ft %> Feet</p>
+    <p>Weather: <%= report.weather[0].hourly[0].weatherDesc[0].value %></p>
+    <p>Swell Direction:<%= report.weather[0].hourly[0].swellDir %> Degrees</p>
+    <p>Swell Period: <%= report.weather[0].hourly[0].swellPeriod_secs %> Seconds</p>
+    <p>Water Temp: <%= report.weather[0].hourly[0].waterTemp_F %> *F</p>
+
+  <a href="/users/profile">Home</a>
+</body>
+</html>
+
+
+
+  
