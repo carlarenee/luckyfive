@@ -11,6 +11,7 @@ function getBreak(req, res, next) {
       .toArray((toArrErr, data) => {
         if(toArrErr) return next(toArrErr);
         res.breaks = data;
+        
         db.close();
         next();
       });
