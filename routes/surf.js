@@ -10,9 +10,9 @@ router.get('/', authenticate, getFavorites, searchReport, (req, res) => {
     user: res.user,
     results: res.results || [],
     favorites: res.favorites || [],
-    report: res.report.data.weather || []
+    report: res.report.data || []
   });
-  console.log(res.report.data);
+  console.log(res.report.data.weather[0].hourly[0].weatherDesc);
 });
 
 router.post('/search', authenticate, getFavorites, searchReport, (req,res) => {

@@ -50,5 +50,5 @@ app.use('/surf', surfRouter);
 // process.env.PORT is needed for when we deploy to Heroku
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`free tacos at ${port}`);
+  console.log(`I'm waiting on ${port}`);
 });
