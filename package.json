@@ -1,0 +1,31 @@
+{
+  "name": "luckyfive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlarenee/luckyfive.git"
+  },
+  "author": "Carla Stockalper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlarenee/luckyfive/issues"
+  },
+  "homepage": "https://github.com/carlarenee/luckyfive#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.5.2",
+    "eslint": "^3.9.0",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11",
+    "morgan": "^1.7.0",
+    "node-fetch": "^1.6.3",
+    "path": "^0.12.7"
+  }
+}
