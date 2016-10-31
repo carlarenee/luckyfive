@@ -3,7 +3,7 @@ const api_key     = process.env.KEY;
 const API_URL     = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?'
 
 function searchReport(req, res, next) {
-  fetch(`${API_URL}key=${api_key}&q=${req.body.cityName}&tide=yes&num_of_days=5&format=json`)
+  fetch(`${API_URL}key=${api_key}&q=miami&tide=yes&num_of_days=5&format=json`)
   .then(r => r.json())
   .then((report) => {
     res.report = report;
@@ -16,3 +16,6 @@ function searchReport(req, res, next) {
 }
 
 module.exports = { searchReport };
+
+//${req.body.cityName}
+//${req.body.zipCode}
