@@ -9,6 +9,7 @@ surfRouter.get('/', authenticate, getBreak, searchReport, (req, res) => {
   res.render('surf/index', {
     user: res.user,
     results: res.results || [],
+    breaks: res.breaks || [],
     favorites: res.favorites || [],
     report: res.report || [],
     saved: res.saved || []

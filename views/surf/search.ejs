@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <div id="breaksContainer">
+  <div id="searchContainer">
     <div class="searchedBreaks">
       <h3>Break Info</h3>
       <p>Location: <%= report.request[0].query %></p>
@@ -20,23 +20,12 @@
       <p>Swell Period: <%= report.weather[0].hourly[0].swellPeriod_secs %> Seconds</p>
       <p>Water Temp: <%= report.weather[0].hourly[0].waterTemp_F %> *F</p>
         <form action="/surf/breaks" method="POST">
-          <input type="hidden" name="" value="break[location]" value="<%= report.request[0].query %>">
-          <input type="hidden" name="" value="break[weather]" value="<%= report.weather[0].hourly[0].weatherDesc[0].value %>">
-          <input type="hidden" name="" value="break[waterTempF]" value="<%= report.weather[0].hourly[0].waterTemp_F %>">
+          <input type="hidden" name="" value="breaks[location]" value="<%= report.request[0].query %>">
+          <input type="hidden" name="" value="breaks[weather]" value="<%= report.weather[0].hourly[0].weatherDesc[0].value %>">
+          <input type="hidden" name="" value="breaks[waterTempF]" value="<%= report.weather[0].hourly[0].waterTemp_F %>">
           <input type="submit" value="Save Break">
         </form>
-    </div>  
-  </div>
-
-  <div id="SavedBreaksContainer">
-    <div class="savedBreaks">
-      <h3>Break Info</h3>
-      <% saved.forEach((n) => {%>
-      <p>Water Temp: <%= n.weather[0].hourly[0].waterTemp_F %> *F</p>
-        <form action="/surf/breaks/<%= break._id %>?_method=DELETE" method="post">
-          <input type="submit" value="Delete">
-        </form>
-       <% }); %> 
+        
     </div>  
   </div>
 
