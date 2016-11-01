@@ -31,10 +31,15 @@ Biggest resources for this project were the labs and template provided by the te
 **Blockers**
 The repo is named 'luckyfive' because it is the 5th version of project 2. The first 2 projects were scrapped because of API request issues. When SurfBuddy was decided on, I was using two open API's from New York Open Data that listed beaches and pools; the idea to offer simmers/surfers options for water time. The data was successfully retrieved, however, not very useful: aside from name and address there were no other interesting bits of data that could be used to search. In the end, I landed on World Weather Online, but not until a few days before the deadline of turning in. 
 
+Another hurdle was a problem with Eslinter: I've had instructors help several times in reinstalling, however, with each new project, it disappears again.
+
 Another hurdle was an unexpected download of thousands of package.json files. Unsure of where they came from, I foolishly moved them to the trash. I realized too late that it had broken my server. I troubleshot and tried to reinstall my dependencies for half a day to no avail and resorted to starting from scratch.
 
 **Going Forward**
 The project is only 70% complete to date. I intend to resolve my Post, Put and Delete functions as well as add in more functionality for the user: offer pool alternatives as well as land based training. I also would like to import an API that helps users find the lat and lon coordinates of their location.
+
+
+
 
 
 
