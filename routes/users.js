@@ -1,3 +1,4 @@
+// Users route from user_auth_template: General Assembly
 /* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
 
 const express      = require('express');

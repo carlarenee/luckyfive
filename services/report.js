@@ -18,10 +18,3 @@ function searchReport(req, res, next) {
 
 module.exports = { searchReport };
 
-//${req.body.cityName}
-//${req.body.zipCode}
-//48.83,2.39
-//40.58,73.81
-//40.5867,73.8115
-//9.9797,85.6486
-

@@ -7,12 +7,13 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
   <body>
-    
-    <h1>Welcome! <%= user.username %></h1>
-    <a href="/surf">Build My SurfBuddy Profile</a>
-    <form action="/auth?_method=DELETE" method="post">
-      <input type="submit" value="Logout">
-    </form>
+    <div class="bigContainerSimple">
+      <div class="container">
+        <h1>Welcome! <%= user.username %></h1>
+        <a href="/surf">Build My SurfBuddy Profile</a>
+        <form action="/auth?_method=DELETE" method="post">
+          <input type="submit" value="Logout">
+        </form>
     </div>
    </div> 
   </body>

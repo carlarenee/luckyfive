@@ -9,8 +9,8 @@
 </head>
 <body>
 
-  <div id="searchContainer">
-    <div class="searchedBreaks">
+  <div id="searchContainer" class="bigContainerSimple">
+    <div class="searchedBreaks" class="container">
       <h3>Break Info</h3>
       <p>Location: <%= report.request[0].query %></p>
       <p>Weather: <%= report.weather[0].hourly[0].weatherDesc[0].value %></p>
@@ -23,14 +23,11 @@
         <form action="/surf/breaks" method="POST">
           <input type="hidden" name="" value="breaks[location]" value="<%= report.request[0].query %>">
           <input type="hidden" name="" value="breaks[weather]" value="<%= report.weather[0].hourly[0].weatherDesc[0].value %>">
-          <input type="hidden" name="" value="breaks[waterTempF]" value="<%= report.weather[0].hourly[0].waterTemp_F %>">
+          <input type="hidden" name="" value="breaks[waterTempF]" value="<%= report.weather[0].hourly[0].waterTemp_F %>"><br />
           <input type="submit" value="Save Break">
-        </form>
-        
+        </form><br />
+      <a href="/users/profile">Home</a>
     </div>  
   </div>
-
-  
-  <a href="/users/profile">Home</a>
 </body>
 </html> 

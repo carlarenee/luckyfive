@@ -1,6 +1,10 @@
 * {
   margin: 0;
-  font-family:'Raleway', sans-serif;;
+  font-family:'Raleway', sans-serif;
+}
+
+a {
+  color: #32B3AB;
 }
 
 .bigContainer {
@@ -33,4 +37,5 @@
   width: 50vw;
   text-align: center;
   padding-top: 200px;
+  line-height: 2em;
 }

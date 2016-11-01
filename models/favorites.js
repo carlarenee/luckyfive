@@ -34,6 +34,7 @@ function saveBreak(req, res, next) {
       .insert(insertObj, (insertErr, result) => {
         if (insertErr) return next(insertErr);
         res.saved = result;
+        console.log(res.saved);
         db.close();
         next();
       });
@@ -42,21 +43,18 @@ function saveBreak(req, res, next) {
   return false;
 }
 
-// Delete method doesn't change because we are deleting objects from the database
-// based on that object's unique _id - you do not need to specify which user as
-// the _id is sufficient enough
-// function deleteBreak(req, res, next) {
-//   getDB().then((db) => {
-//     db.collection('breaks')
-//       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, result) => {
-//         if (removeErr) return next(removeErr);
-//         res.removed = result;
-//         db.close();
-//         next();
-//       });
-//       return false;
-//   });
-//   return false;
-// }
+function deleteBreak(req, res, next) {
+  getDB().then((db) => {
+    db.collection('breaks')
+      .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, result) => {
+        if (removeErr) return next(removeErr);
+        res.removed = result;
+        db.close();
+        next();
+      });
+      return false;
+  });
+  return false;
+}
 
-module.exports = { getBreak, saveBreak };
+module.exports = { getBreak, saveBreak, deleteBreak };

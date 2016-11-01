@@ -1,3 +1,4 @@
+// All code on this page from user_auth_template
 const express = require('express');
 
 const indexRouter = express.Router();

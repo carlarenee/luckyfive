@@ -1,3 +1,4 @@
+//All code on this page from user_auth_template
 /* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
