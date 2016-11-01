@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
-
   <div id="searchContainer" class="bigContainerSimple">
     <div class="searchedBreaks" class="container">
       <h3>Break Info</h3>
@@ -20,13 +19,14 @@
       <p>Swell Direction: <%= report.weather[0].hourly[0].swellDir %> Degrees</p>
       <p>Swell Period: <%= report.weather[0].hourly[0].swellPeriod_secs %> Seconds</p>
       <p>Water Temp: <%= report.weather[0].hourly[0].waterTemp_F %> *F</p>
-        <form action="/surf/breaks" method="POST">
+        <form action="/surf/save" method="POST">
           <input type="hidden" name="" value="breaks[location]" value="<%= report.request[0].query %>">
           <input type="hidden" name="" value="breaks[weather]" value="<%= report.weather[0].hourly[0].weatherDesc[0].value %>">
           <input type="hidden" name="" value="breaks[waterTempF]" value="<%= report.weather[0].hourly[0].waterTemp_F %>"><br />
           <input type="submit" value="Save Break">
         </form><br />
       <a href="/users/profile">Home</a>
+
     </div>  
   </div>
 </body>

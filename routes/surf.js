@@ -6,33 +6,49 @@ const { getBreak,
         deleteBreak }     = require('../models/favorites');
 
 // get, post, delete functions modeled after Rafa's lab
-surfRouter.get('/', authenticate, getBreak, searchReport, (req, res) => {
+surfRouter.get('/', authenticate, (req, res) => {
   res.render('surf/index', {
     user: res.user,
     breaks: res.breaks || [],
     report: res.report || [],
-    saved: res.saved || [],
     //removed: res.removed || []
   });
 });
 
-surfRouter.post('/search', authenticate, getBreak, searchReport, saveBreak, (req,res) => {
+surfRouter.post('/search', authenticate, getBreak, searchReport, (req,res) => {
   res.render('surf/search', {
     user: res.user,
     breaks: res.breaks || [],
     report: res.report.data || [],
-    saved: res.saved || []
+  });
+  // res.json(res.breaks)
+});
+
+surfRouter.post('/save', authenticate, saveBreak, searchReport, (req,res) => {
+  res.render('surf/search', {
+    user: res.user,
+    saved: res.saved || [],
+    report: res.report.data || [],
+  });
+  // res.json(res.breaks)
+});
+
+surfRouter.get('/save',  (req,res) => {
+  res.render('surf/results', {
+    user: res.user,
+    saved: res.saved || [],
   });
 });
 
-surfRouter.delete('/breaks/:id', deleteBreak, (req, res) => {
-  res.redirect('/surf');
-});
+// surfRouter.delete('/breaks/:id', deleteBreak, (req, res) => {
+//   res.redirect('/surf');
+// });
 
-surfRouter.get('/breaks', saveBreak, (req, res) => {
-  res.redirect('/surf', {
-    saved: res.saved || []
-  });
-});
+// surfRouter.get('/breaks', saveBreak, getBreak, (req, res) => {
+//   res.redirect('/surf', {
+//     saved: res.saved || [],
+//     breaks: res.breaks || []
+//   });
+// });
 
 module.exports = surfRouter;
