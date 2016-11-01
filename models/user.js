@@ -1,6 +1,7 @@
 /* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
+// This entire page was taken from the user_auth_template from GA.
 const { ObjectID } = require('mongodb');
 const { getDB }    = require('../lib/dbConnect.js');
 const bcrypt       = require('bcryptjs');

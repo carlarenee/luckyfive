@@ -9,7 +9,7 @@
 <body>
 
   <div id="breaksContainer">
-    <div class="savedBreak">
+    <div class="searchedBreaks">
       <h3>Break Info</h3>
       <p>Location: <%= report.request[0].query %></p>
       <p>Weather: <%= report.weather[0].hourly[0].weatherDesc[0].value %></p>
@@ -28,8 +28,19 @@
     </div>  
   </div>
 
-  
+  <div id="SavedBreaksContainer">
+    <div class="savedBreaks">
+      <h3>Break Info</h3>
+      <% saved.forEach((n) => {%>
+      <p>Water Temp: <%= n.weather[0].hourly[0].waterTemp_F %> *F</p>
+        <form action="/surf/breaks/<%= break._id %>?_method=DELETE" method="post">
+          <input type="submit" value="Delete">
+        </form>
+       <% }); %> 
+    </div>  
+  </div>
 
+  
   <a href="/users/profile">Home</a>
 </body>
 </html> 

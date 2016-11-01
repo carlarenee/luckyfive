@@ -1,17 +1,15 @@
+// getBreak, saveBreak and deleteBreak were modeled directly after the exapmle from the user_auth_itunes provided in class.
+
 const { ObjectID } = require('mongodb');
 const { getDB }    = require('../lib/dbConnect.js');
 
-// const DB_CONNECTION = 'mongodb://localhost:27017/itunescrud';
-
 function getBreak(req, res, next) {
-  // find all favorites for your userId
   getDB().then((db) => {
     db.collection('breaks')
       .find({ userId: { $eq: req.session.userId } })
       .toArray((toArrErr, data) => {
         if(toArrErr) return next(toArrErr);
         res.breaks = data;
-        
         db.close();
         next();
       });
@@ -21,7 +19,6 @@ function getBreak(req, res, next) {
 }
 
 function saveBreak(req, res, next) {
-  // creating an empty object for the insertObj
   const insertObj = {};
   
   // copying all of req.body into insertObj
